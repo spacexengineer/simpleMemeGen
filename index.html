@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <title>Meme Generator</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  <body>
+<!-- First half with form title and form input -->
+<!-- <div class="container"> -->
+    <div class="total" style="background-color: silver;">
+      <div class="headings" style="text-align: center">
+        <h1>MEMEZ YOU MAY HAVE?</h1>
+        <p>Fill out the form to start creating memes!</p>
+      </div>
+          
+      <form>
+        <div class="form-group row">
+          <div class="col-12">
+            <div class="row" style="justify-content: center">
+              <label for="memeUrl" class="col-2 col-form-label">Image URL</label>
+              <input type="text" class="col-8 form-control" id="memeUrl" placeholder="Insert URL for meme image">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-12">
+              <div class="row" style="justify-content: center">
+                <label for="topText" class="col-2 col-form-label">Text On Top</label>
+                <input type="text" class="col-8 form-control" id="topText" placeholder="(Optional) What text do you want at the top of the meme?">
+              </div>
+            </div>    
+        </div>
+        <div class="form-group row">
+          <div class="col-12">
+              <div class="row" style="justify-content: center">
+                <label for="topText" class="col-2 col-form-label">Text On Bottom</label>
+                <input type="bottomtext" class="col-8 form-control" id="bottomText" placeholder="(Optional) What text do you want at the bottom of the meme?">
+              </div>
+            </div>
+        </div>
+        <!--<div class="class-12">
+          <div class="row">
+            <div class="col-10"></div>
+            <input class="col-1 btn btn-primary" type="submit" value="Add Meme" onclick="addMeme()" style="margin-bottom: 2%">
+          </div>
+        </div>  -->
+      </form>
+      <div class="row">
+          <input class="btn btn-lg btn-block btn-primary" type="submit" value="Submit" onclick="addMeme()">
+      </div>
+    </div>
+
+    <!-- ************************ Bottom Half ********************** -->
+
+    <div id="memeContainer">
+
+    </div>
+    
+    <script>
+    //window.onload = function(){
+      function addMeme() {
+      /* Initialize Container */
+      var nextContainer = document.createElement("div");
+      nextContainer.setAttribute("class", "nextContainer");
+  
+      /* Top text */
+      var topDiv = document.createElement("div");
+      var topText = document.getElementById("topText").value;
+      var createTop = document.createTextNode(topText);
+      topDiv.setAttribute("class", "topText");
+      topDiv.style.class = "topText";
+      topDiv.appendChild(createTop);
+  
+      /* Bottom Text */
+      var bottomDiv = document.createElement("div");
+      //var bottomDiv = document.createElement("p");
+      var bottomText = document.getElementById("bottomText").value;
+      var createBottom = document.createTextNode(bottomText);
+      bottomDiv.setAttribute("class", "bottomText");
+      //bottomDiv.style.class = "bottomText";
+      bottomDiv.appendChild(createBottom);
+  
+      /* Image */
+
+      var memeImg = document.createElement("img");
+      var src = document.getElementById("memeUrl").value;
+      memeImg.setAttribute("src", src);
+
+      var width = memeImg.width;
+      var height = memeImg.height;
+      //var memeImg = document.createElement("img");
+      
+      /*img container */
+
+      nextContainer.style.backgroundImage = "url('" + src + "')"
+      nextContainer.style.width = width + "px";
+      nextContainer.style.height = height + "px";
+
+      nextContainer.setAttribute("alt", "Your meme can't be uploaded!");
+      nextContainer.setAttribute("onclick", "deleteMeme(this)");
+
+      /* Append everything */
+      nextContainer.append(topDiv);
+      //memeContainer.append(memeImg);
+      nextContainer.append(bottomDiv);
+      document.querySelector("#memeContainer").appendChild(nextContainer);
+    }
+    
+    function deleteMeme(elem) {
+      var toDelete = document.getElementById("memeContainer").children;
+      elem.remove(elem.selectedIndex);
+    }
+  
+    </script>
+    
+  </body>
+</html>

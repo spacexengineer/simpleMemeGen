@@ -1,0 +1,46 @@
+/* Top style via Bootstrap V4 */
+/* Bottom half -> memes */
+
+#memeContainer {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.nextContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 2% 2% 2% 2%;
+    border-radius: 5px;
+    background-image: 100%;
+}
+
+.nextContainer:hover {
+    opacity: 0.5;
+}
+
+.nextContainer  .topText, .nextContainer .bottomText{
+    font-family: impact;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow:2px 2px 0 #000,
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    0px 2px 0 #000,
+    2px 0px 0 #000,
+    0px -2px 0 #000,
+    -2px 0px 0 #000,
+    2px 2px 5px #000;
+}
+
+.topText, .bottomText {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
